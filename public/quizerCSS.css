@@ -391,7 +391,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
 }
 
-.border-4, .border-2 {
+.border-4, .border-2, .active\:border-2 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
@@ -439,14 +439,20 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: -moz-min-content;
   width: min-content;
 }
-.w-screen {
-  width: 100vw;
+.w-2\/6 {
+  width: 33.333333%;
+}
+.w-4\/6 {
+  width: 66.666667%;
 }
 .w-80 {
   width: 20rem;
 }
 .w-2\/5 {
   width: 40%;
+}
+.w-screen {
+  width: 100vw;
 }
 .transform {
   transform: var(--tw-transform);
@@ -493,6 +499,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-2 {
   border-width: 2px;
 }
+.border-solid {
+  border-style: solid;
+}
 .border-blue-400 {
   --tw-border-opacity: 1;
   border-color: rgb(96 165 250 / var(--tw-border-opacity));
@@ -500,6 +509,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .border-gray-500 {
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
+}
+.border-gray-800 {
+  --tw-border-opacity: 1;
+  border-color: rgb(31 41 55 / var(--tw-border-opacity));
 }
 .bg-blue-200 {
   --tw-bg-opacity: 1;
@@ -572,6 +585,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .hover\:ease-in:hover {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.active\:border-2:active {
+  border-width: 2px;
+}
+.active\:border-black:active {
+  --tw-border-opacity: 1;
+  border-color: rgb(0 0 0 / var(--tw-border-opacity));
 }
 @media (min-width: 768px) {
 
