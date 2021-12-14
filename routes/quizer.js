@@ -3,6 +3,8 @@ const path = require('path')
 const router = express.Router()
 const bodyParser = require('body-parser')
 const urlencoded = bodyParser.urlencoded({extended:false})
+const multer = require('multer')
+const formInput = multer()
 const fs = require('fs')
 const ejs = require('ejs')
 const mongoose = require('mongoose')
@@ -43,32 +45,11 @@ router.route('/tests')
   .get((req, res) => {
     res.sendFile('tests.html',options)
   })
-  .post(urlencoded,(req,res) => {
-    quizerDB.findOne({subject:req.body.test},'-_id -items._id', (err,doc)=>{
-
-      // var objDoc = JSON.parse(JSON.stringify(doc))
-      // console.log(objDoc)
+  .post(formInput.none(),(req,res) => {
+    quizerDB.findOne({subject:req.body.subject},'-_id -items._id', (err,doc)=>{
 
       var objDoc = doc.toJSON();
-      // console.log(objDoc)
-
-
-      // fs.readFile(path.join(__dirname,'../views/tests.html'),'utf-8', (err,html)=>{
-      //   res.send(ejs.render(html,JSON.stringify({questions:doc})))
-      // })
-
-      // fs.readFile(path.join(__dirname,'../views/tests.html'),'utf-8', (err,html)=>{
-      //   res.send(ejs.render(html,{questions: JSON.stringify(doc)}))
-      // })
-
-      fs.readFile(path.join(__dirname,'../views/tests.html'),'utf-8', (err,html)=>{
-        res.send(ejs.render(html,{questions:objDoc}))
-      })
-
-      // ejs.renderFile(path.join(__dirname,'../views/tests.html'),{questions:doc},(err,str)=>{
-      //   console.log(str)
-      //   res.send(str);
-      // })
+      res.json(objDoc)
 
     })   
   })

@@ -12,19 +12,19 @@
     border-4 border-solid rounded-md border-gray-800
     bg-gray-200
     ">
-      <div id="wrapper" class="
+      <div id="selectTest" class="
       flex flex-col items-center h-screen justify-center space-y-10
       w-5/6 m-auto md:w-4/6
       ">
     
      
-          <form action="/tests" method="POST" enctype="application/x-www-form-urlencoded" class="
+          <form name="testOptions" id="testOptions" class="
             flex flex-col items-center space-y-5 text-2xl
           ">
-              <label for="test" class="
+              <label for="subject" class="
               text-3xl text-center
-              ">Choose a test and press Start:</label>
-              <select id="test" name="test" size="5" class="
+              ">Choose a subject and press Start:</label>
+              <select id="subject" name="subject" size="5" class="
               border-4 border-
               ">
                 <option value="tailwindCSS" selected>TailwindCSS</option>
@@ -43,20 +43,24 @@
     <div id="testWrapper" class="w-4/6
     border-4 border-solid rounded-md border-gray-800
     ">
-      <div id="wrapper" class="
+      <div id="testPage" class="
       flex flex-col items-center h-screen justify-center space-y-10
       w-5/6 m-auto md:w-4/6
       ">
-          <p class="
+          <p id="question" class="
           text-3xl
           ">Question will display here.</p>
           <input type=text id="answer" class="
           text-2xl 
           active:border-black active:border-2 
-          rounded-lg
+          rounded-lg text-center w-96
           " placeholder="Place your answer here">
           <p id="answerWrong" class="
-          text-2xl hidden
+          text-2xl 
+          active:border-black active:border-2 
+          rounded-lg text-center w-96
+          bg-red-300 border-2 border-red-700 text-white text-red-900
+          font-bold hidden
           ">
             Display correct answer here of the answer is wrong  
           </p>
@@ -67,27 +71,27 @@
           
       </div> 
       <!--Modal to show after finishing the test.-->
-      <div class="
+      <div id="modal" class="
       bg-gray-300 h-screen w-full flex flex-col justify-center
       items-center bg-opacity-70 hidden
       ">
           <div class="
               bg-white w-80 h-80 border-2 border-gray-500 rounded-lg
           ">
-              <p class="
+              <p id="message" class="
               h-3/6 text-xl text-center    
               ">mesage here</p>
-              <p class="
+              <p id="results" class="
               h-1/6 text-xl text-center
               ">display results here</p>
               <div class="
               flex flex-row justify-around h-2/6 items-center
               ">
-                  <button class="
+                  <button id="restart" class="
                   bg-blue-200 p-3 border-blue-400 border-2 rounded-md text-xl transform hover:scale-110 hover:ease-in 
                   w-2/5 uppercase h-14
                   ">restart</button>
-                  <button class="
+                  <button id="newTest" class="
                   bg-blue-200 p-3 border-blue-400 border-2 rounded-md text-xl transform hover:scale-110 hover:ease-in
                   w-2/5 uppercase h-14
                   ">new test</button>
