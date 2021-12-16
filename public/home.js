@@ -17,13 +17,13 @@ const restart = document.getElementById('restart')
 const newTest = document.getElementById('newTest')
 
 // Global variables
-// all the questions are stored here
+// All the questions are stored here 
 var testPaper;
-// tempoary storage same as testPaper but volatile
+// Tempoary storage same as testPaper but volatile
 var temp;
-// score of the user
+// Score of the user
 var score = 0;
-// current index being used as question
+// Current index being used as question
 var randomItem
 
 /*** Retrieve test questions and answer key from database */
@@ -52,6 +52,7 @@ function startTest() {
     let totalItems = temp.length
     console.log("totalItems:",totalItems)
     randomItem = _.random(0,totalItems-1,false)
+    console.log("current question",temp[randomItem])
     question.innerText = temp[randomItem].question
     answerWrong.value = temp[randomItem].answer
     answer.focus()
@@ -112,7 +113,7 @@ submitAnswer.addEventListener('click',async ()=>{
   }
 })
 answer.addEventListener('keypress',async (e)=>{
-  if(e.keyCode === 13){
+  if((e.keyCode || e.which) === 13){
     let status = await checkAnswer()
     if (status) {
       startTest()
@@ -126,16 +127,22 @@ nextQuestion.addEventListener('click',async ()=>{
   startTest()
 })
 answerWrong.addEventListener('keypress',async (e)=>{
-  if (e.keyCode === 13){
+  if ((e.keyCode || e.which) === 13){
     await toggleAnswer()
     startTest()    
   }
 })
 restart.addEventListener('click',(e)=>{
-
+  score = 0;
+  temp = [...testPaper.items];
+  modal.classList.toggle('hidden')
+  testPage.classList.toggle('hidden')
+  startTest()
 })
 newTest.addEventListener('click',(e)=>{
-
+  score = 0;
+  temp = [...testPaper.items];
+  modal.classList.toggle('hidden')  
 })
 testOptions.onsubmit = (e) => {
   e.preventDefault();

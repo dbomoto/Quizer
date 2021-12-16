@@ -2,6 +2,12 @@
   "files": {
     "public/home.js": [
       {
+        "id": "60fd5f0e-3ba4-41a1-9851-a0715bcaae5c",
+        "line": 144,
+        "version": 5817,
+        "index": 3930
+      },
+      {
         "id": "b64b3da6-46d0-4edd-9f58-aa97486cc621",
         "line": 153,
         "version": 4958,
