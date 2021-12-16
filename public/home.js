@@ -53,7 +53,7 @@ function startTest() {
     console.log("totalItems:",totalItems)
     randomItem = _.random(0,totalItems-1,false)
     question.innerText = temp[randomItem].question
-    answerWrong.innerText = temp[randomItem].answer
+    answerWrong.value = temp[randomItem].answer
     answer.focus()
     return
   } else {
@@ -91,7 +91,7 @@ function toggleAnswer(){
       submitAnswer.disabled = true
     }
     nextQuestion.classList.toggle('hidden')
-    nextQuestion.focus();
+    answerWrong.focus();
     return
 }
 
@@ -104,24 +104,33 @@ function testResults() {
 
 // Event listeners
 submitAnswer.addEventListener('click',async ()=>{
-  // check the answer
   let status = await checkAnswer()
   if (status) {
-  // procceed to next question immediately and add 1 to score
     startTest()
   } else {
-  // display correct answer, hide 'submit', and show 'next' button
     await toggleAnswer()
   }
-  // if the test is done, hide 'testpage' and show 'modal'
+})
+answer.addEventListener('keypress',async (e)=>{
+  if(e.keyCode === 13){
+    let status = await checkAnswer()
+    if (status) {
+      startTest()
+    } else {
+      await toggleAnswer()
+    }    
+  }
 })
 nextQuestion.addEventListener('click',async ()=>{
-  // after clicking 'next' show empty input box, hide correct answer and 'next' and show 'submit' button.
   await toggleAnswer()
   startTest()
-  // if the test is done, hide 'testpage' and show 'modal'
 })
-
+answerWrong.addEventListener('keypress',async (e)=>{
+  if (e.keyCode === 13){
+    await toggleAnswer()
+    startTest()    
+  }
+})
 restart.addEventListener('click',(e)=>{
 
 })
