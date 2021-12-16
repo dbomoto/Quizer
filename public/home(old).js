@@ -26,7 +26,7 @@ var score = 0;
 // current index being used as question
 var randomItem
 
-/*** Retrieve test questions and answer key from database */
+// Retrieve test questions and answer key from database
 async function getQuestions() {
   const questions = await fetch('/tests', {
   method: 'POST',
@@ -46,23 +46,24 @@ async function getQuestions() {
   startTest();
 }
 
-/*** Starts the test of the chosen subject */
+// Starts the test of the chosen subject
 function startTest() {
-  if (temp.length){
-    let totalItems = temp.length
-    console.log("totalItems:",totalItems)
-    randomItem = _.random(0,totalItems-1,false)
-    question.innerText = temp[randomItem].question
-    answerWrong.innerText = temp[randomItem].answer
-    answer.focus()
-    return
-  } else {
-    testResults()
-  }
+  // get how many questions there are on temp container
+  let totalItems = temp.length
+  console.log("totalItems:",totalItems)
+  // random pick 1 question
+  randomItem = _.random(0,totalItems-1,false)
+  // display question to 'question'
+  question.innerText = temp[randomItem].question
+  // ready correct answer on 'answerWrong'
+  answerWrong.innerText = temp[randomItem].answer
+// pass to 'checkAnswer'
+  answer.focus()
+
 }
 
-/*** Checks the answer of the user */
-function checkAnswer() {
+// Check the answer of the user
+async function checkAnswer() {
   // if answer is correct proceed to next question and remove that object from the array 'temp'
   // accumulate score
   console.log("User answer:",(answer.value).toString())
@@ -73,14 +74,11 @@ function checkAnswer() {
     answer.value = ""
     return true
   }
-  console.log("Answer is wrong")
-  temp.splice(randomItem,1)
-  answer.value = ""
   return false
   // wait for user to press 'next button' and call 'startTest'
 }
 
-/*** Hide and show elements depending on the answer of the user. */
+// Hide and show elements depending on the answer of the user.
 function toggleAnswer(){
     answer.classList.toggle('hidden')
     answerWrong.classList.toggle('hidden')
@@ -95,7 +93,7 @@ function toggleAnswer(){
     return
 }
 
-/*** Displays the results */
+// Displays the results
 function testResults() {
   testPage.classList.toggle('hidden');
   modal.classList.toggle('hidden');
@@ -104,29 +102,64 @@ function testResults() {
 
 // Event listeners
 submitAnswer.addEventListener('click',async ()=>{
-  // check the answer
-  let status = await checkAnswer()
-  if (status) {
-  // procceed to next question immediately and add 1 to score
-    startTest()
+  let status = await checkAnswer();
+  if (status){
+    if (temp.length){
+      startTest();
+    } else {
+      testResults();
+    }
   } else {
-  // display correct answer, hide 'submit', and show 'next' button
+    console.log("Answer is wrong")
     await toggleAnswer()
+    temp.splice(randomItem,1)
+    answer.value = ""    
   }
-  // if the test is done, hide 'testpage' and show 'modal'
 })
 nextQuestion.addEventListener('click',async ()=>{
-  // after clicking 'next' show empty input box, hide correct answer and 'next' and show 'submit' button.
-  await toggleAnswer()
-  startTest()
-  // if the test is done, hide 'testpage' and show 'modal'
+  await toggleAnswer();
+  if (temp.length){
+    startTest();
+  } else {
+    testResults();
+  }
 })
-
+// answer.addEventListener('keypress',async (e)=>{
+//   if (e.keyCode === 13){
+//     e.preventDefault()
+//     let status = await checkAnswer();
+//     if (status){
+//       startTest();
+//     } else {
+//       console.log("Answer is wrong")
+//       await toggleAnswer()
+//       temp.splice(randomItem,1)
+//       answer.value = ""    
+//     }   
+//   }
+// })
+// nextQuestion.addEventListener('keypress', async (e)=>{
+//   if (e.keyCode === 13){
+//     e.preventDefault();
+//     await toggleAnswer();
+//     if (temp.length){
+//       startTest();
+//     } else {
+//       testResults();
+//     }    
+//   }
+// })
 restart.addEventListener('click',(e)=>{
-
+  e.preventDefault()
+  score = 0;
+  temp = [...testPaper.items];
+  modal.classList.toggle('hidden')
+  testPage.classList.toggle('hidde')
+  startTest()
 })
 newTest.addEventListener('click',(e)=>{
-
+  e.preventDefault()
+  modal.classList.toggle('hidden')
 })
 testOptions.onsubmit = (e) => {
   e.preventDefault();

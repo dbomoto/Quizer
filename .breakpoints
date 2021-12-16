@@ -1,3 +1,18 @@
 {
-  "files": {}
+  "files": {
+    "public/home.js": [
+      {
+        "id": "8a459f53-c22a-43c3-a29f-4e0382bda4cd",
+        "line": 120,
+        "version": 5000,
+        "index": 3452
+      },
+      {
+        "id": "b64b3da6-46d0-4edd-9f58-aa97486cc621",
+        "line": 153,
+        "version": 4958,
+        "index": 4283
+      }
+    ]
+  }
 }

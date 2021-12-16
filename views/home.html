@@ -45,7 +45,7 @@
     ">
       <div id="testPage" class="
       flex flex-col items-center h-screen justify-center space-y-10
-      w-5/6 m-auto md:w-4/6
+      w-5/6 m-auto md:w-4/6 hidden
       ">
           <p id="question" class="
           text-3xl
@@ -64,10 +64,14 @@
           ">
             Display correct answer here of the answer is wrong  
           </p>
-          <button type="submit" class="
+          <button id="submitAnswer" type="button" class="
             bg-blue-200 p-3 border-blue-400 border-2 rounded-md text-xl
             transform hover:scale-110 hover:ease-in
           ">Submit</button>
+          <button id="nextQuestion" type="button" class="
+            bg-blue-200 p-3 border-blue-400 border-2 rounded-md text-xl
+            transform hover:scale-110 hover:ease-in hidden
+          ">Next</button>
           
       </div> 
       <!--Modal to show after finishing the test.-->
@@ -80,18 +84,18 @@
           ">
               <p id="message" class="
               h-3/6 text-xl text-center    
-              ">mesage here</p>
+              ">Test finished. Here are the results.</p>
               <p id="results" class="
               h-1/6 text-xl text-center
               ">display results here</p>
               <div class="
               flex flex-row justify-around h-2/6 items-center
               ">
-                  <button id="restart" class="
+                  <button type="button"" id="restart" class="
                   bg-blue-200 p-3 border-blue-400 border-2 rounded-md text-xl transform hover:scale-110 hover:ease-in 
                   w-2/5 uppercase h-14
                   ">restart</button>
-                  <button id="newTest" class="
+                  <button type="button" id="newTest" class="
                   bg-blue-200 p-3 border-blue-400 border-2 rounded-md text-xl transform hover:scale-110 hover:ease-in
                   w-2/5 uppercase h-14
                   ">new test</button>
@@ -101,5 +105,6 @@
     </div>
 </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 <script src="/home.js"></script>
 </html>
