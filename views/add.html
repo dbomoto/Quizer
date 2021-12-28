@@ -11,45 +11,44 @@
   flex flex-col items-center h-screen justify-center space-y-10
   w-5/6 m-auto md:w-4/6 h-[800px]
   ">   
-      <h1 class="
-      text-3xl uppercase underline font-bold line tracking-wider
-      ">Add questions Page</h1>    
-      
-      <form name="chooseTest" class="
-      flex flex-col items-center space-y-5 text-2xl
-      "> 
-          <label for="tests" class="
-          text-3xl
-          ">Choose a test:</label>
-          <select id="tests" name="tests" size="5" class="
-          border-4 border-
-          ">
-            <option value="tailwindCSS" selected>TailwindCSS</option>
-            <option value="jsDoc">JS Doc</option>
-            <option value="replitShortcuts">Replit Shortcuts</option>
-            <option value="gitCLI">Git CLI</option>
-          </select>
-          <input type="submit" value="Add Questions" class="
-            bg-blue-200 p-3 border-blue-400 border-2 rounded-md
-            transform hover:scale-110 hover:ease-in    
-          ">
-      </form>    
-      
-      <form name="addQuestions" class="w-full p-1
-      flex flex-col space-y-4 items-center text-xl
-      ">
-          <label for="question">Question:</label>
-          <textarea class="w-full bg-gray-200 border-2 border-gray-500 h-32" id="question" name="question">
-          </textarea>
-          <label for="answer">Answer:</label>
-          <input type="text" class="w-full  bg-gray-200 border-2 border-gray-500" name="answer" id="answer">
-          <input type="submit" value="Add" class="
-            bg-blue-200 p-3 border-blue-400 border-2 rounded-md
-            transform hover:scale-110 hover:ease-in w-min  
-          ">
-      </form>
+    <h1 class="
+    text-3xl uppercase underline font-bold line tracking-wider
+    ">Add questions Page</h1>    
+    
+    <form name="addTest" id="addTest" class="
+    flex flex-col items-center space-y-5 text-2xl
+    "> 
+        <label for="tests" class="
+        text-3xl
+        ">Choose a test to add questions:</label>
+        <select id="tests" name="tests" size="5" class="
+        border-4 border-
+        ">
+          <option value="tailwindCSS" selected>TailwindCSS</option>
+          <option value="jsDoc">JS Doc</option>
+          <option value="replitShortcuts">Replit Shortcuts</option>
+          <option value="gitCLI">Git CLI</option>
+        </select>
+        <label for="question">Question:</label>
+        <textarea class="w-full bg-gray-200 border-2 border-gray-500 h-32" id="question" name="question"></textarea>
+        <label for="answer">Answer:</label>
+        <input type="text" class="w-full  bg-gray-200 border-2 border-gray-500" name="answer" id="answer">
+        <input type="submit" value="Add" id="newQuestion" class="
+          bg-blue-200 p-3 border-blue-400 border-2 rounded-md
+          transform hover:scale-110 hover:ease-in w-min  
+        ">
+    </form>
+  </div> 
 
-        
-  </div>  
+  <!-- Modal for status update -->
+  <div id="modal" class="w-screen h-screen
+  flex flex-col justify-center items-center z-10 hidden
+  ">
+      <div class="bg-gray-300/80 p-2 rounded border-black border-2">
+          <h1 id="status" class="text-4xl ">TEST PHRASE</h1>
+      </div>
+  </div>   
+  
 </body>
+<script src="/add.js"></script>
 </html>

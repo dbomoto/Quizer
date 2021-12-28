@@ -34,13 +34,24 @@ const quizerDB = mongoose.model('quizer', quizerSchema, 'quizer');
 router.get('/', (req, res) => {
   res.sendFile('home.html',options)
 })
-router.get('/add', (req, res) => {
-  res.sendFile('add.html',options)
-})
+router.route('/add')
+  .get((req,res) => {
+    res.sendFile('add.html',options)
+  })
+  .post(formInput.none(),(req,res) => {
+    // res.json({status:true})
+    quizerDB.findOne({subject:req.body.tests},async (err,doc)=>{
+      if (err) {
+        res.send({status:"Update failed."})
+      }
+      doc.items.push({question:req.body.question, answer:req.body.answer})
+      await doc.save();
+      res.send({status:"Update successfull."})
+    })      
+  })
 router.get('/database', (req, res) => {
   res.sendFile('database.html',options)
 })
-
 router.route('/tests')
   .get((req, res) => {
     res.sendFile('tests.html',options)
