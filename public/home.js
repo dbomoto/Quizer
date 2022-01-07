@@ -144,6 +144,37 @@ newTest.addEventListener('click',(e)=>{
   temp = [...testPaper.items];
   modal.classList.toggle('hidden')  
 })
+
+// Converts arrows keys, ctrl, alt, and shift to txt.
+document.addEventListener('keydown',(e)=>{
+  switch(e.which){
+    case 17:
+      e.preventDefault();
+      answer.value += "ctrl+";
+      break;    
+    case 18:
+      e.preventDefault();
+      answer.value += "alt+";
+      break;
+    case 16:
+      e.preventDefault();
+      answer.value += "shift+";
+      break;
+    case 38:
+      answer.value += "up";
+      break;
+    case 40:
+      answer.value += "down";
+      break;
+    case 37:
+      answer.value += "left";
+      break;
+    case 39:
+      answer.value += "right";
+      break;
+  }
+})
+
 testOptions.onsubmit = (e) => {
   e.preventDefault();
   getQuestions();
