@@ -145,33 +145,104 @@ newTest.addEventListener('click',(e)=>{
   modal.classList.toggle('hidden')  
 })
 
-// Converts arrows keys, ctrl, alt, and shift to txt.
+// Converts specific keyboard combinations to txt.
 document.addEventListener('keydown',(e)=>{
-  switch(e.which){
-    case 17:
-      e.preventDefault();
-      answer.value += "ctrl+";
-      break;    
-    case 18:
-      e.preventDefault();
-      answer.value += "alt+";
-      break;
-    case 16:
-      e.preventDefault();
-      answer.value += "shift+";
-      break;
-    case 38:
-      answer.value += "up";
-      break;
-    case 40:
-      answer.value += "down";
-      break;
-    case 37:
-      answer.value += "left";
-      break;
-    case 39:
-      answer.value += "right";
-      break;
+  if(e.keyCode === 114){
+    e.preventDefault();
+    answer.value += "F3";
+  }
+
+  if (e.altKey){
+    switch(e.keyCode){
+      case 38:
+        e.preventDefault();
+        answer.value = "alt+up";
+        break;
+      case 40:
+        e.preventDefault();
+        answer.value = "alt+down";
+        break;
+    }
+  }
+  if (e.shiftKey){
+    switch(e.keyCode){
+      case 114:
+        e.preventDefault();
+        answer.value = "shift+F3";
+        break;
+    }
+  }
+  if (e.ctrlKey) {
+    switch(e.keyCode){
+      case 73:
+        e.preventDefault();
+        answer.value = "ctrl+i";
+        break;
+      case 70:
+        e.preventDefault();
+        answer.value = "ctrl+f";
+        break;
+      case 72:
+        e.preventDefault();
+        answer.value = "ctrl+h";
+        break;
+      case 68:
+        e.preventDefault();
+        answer.value = "ctrl+d";
+        break;
+      case 80:
+        e.preventDefault();
+        answer.value = "ctrl+p";
+        break;
+      case 71:
+        e.preventDefault();
+        answer.value = "ctrl+g";
+        break;
+      case 219:
+        e.preventDefault();
+        answer.value = "ctrl+[";
+        break;
+      case 221:
+        e.preventDefault();
+        answer.value = "ctrl+]";
+        break;
+    }
+  }
+  if (e.altKey && e.shiftKey){
+    switch(e.keyCode){
+      case 38:
+        e.preventDefault();
+        answer.value = "shift+alt+up";
+        break;
+      case 40:
+        e.preventDefault();
+        answer.value = "shift+alt+down";
+        break;
+    }
+  }
+  if (e.ctrlKey && e.shiftKey){
+    switch(e.keyCode){
+      case 75:
+        e.preventDefault();
+        answer.value = "ctrl+shift+k";
+        break;
+      case 13:
+        e.preventDefault();
+        answer.value = "ctrl+shift+enter";
+        break;
+    }
+  }
+  if (e.ctrlKey && e.altKey){
+    switch(e.keyCode){
+      case 38:
+        e.preventDefault();
+        answer.value = "ctrl+alt+up";
+        break;
+      case 40:
+        e.preventDefault();
+        answer.value = "ctrl+alt+down";
+        break;
+    }
   }
 })
 
