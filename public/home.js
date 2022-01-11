@@ -1,5 +1,6 @@
 // Sidebar html elmeents
 const testOptions = document.getElementById('testOptions')
+const subject = document.getElementById('subject')
 
 // Test content html elmenets
 const testPage = document.getElementById('testPage')
@@ -25,6 +26,17 @@ var temp;
 var score = 0;
 // Current index being used as question
 var randomItem
+
+// Retrieve the subjects available and add to options.
+fetch('/subjects')
+  .then(res => res.json())
+  .then(data => data.subjects.forEach((txt)=>{
+    let opt = document.createElement('option');
+    let txtopt = document.createTextNode(txt);
+    opt.appendChild(txtopt);
+    opt.setAttribute('value',txt);
+    subject.appendChild(opt);
+  }))
 
 /*** Retrieve test questions and answer key from database */
 async function getQuestions() {

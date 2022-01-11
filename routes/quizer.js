@@ -64,5 +64,15 @@ router.route('/tests')
 
     })   
   })
+router.route('/subjects')
+  .get((req,res)=>{
+    res.json({subjects:[
+      "tailwindCSS",
+      "replitShortcuts",
+      "jsDoc",
+      "gitCLI",
+      "npmCommands"
+    ]})
+  })
 
 module.exports = router ; 
