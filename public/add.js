@@ -3,6 +3,8 @@ const status = document.getElementById('status');
 const modal = document.getElementById('modal');
 const wrapper = document.getElementById('wrapper');
 const tests = document.getElementById('tests')
+const addSubject = document.getElementById('addSubject');
+const addSubjectReq = document.getElementById('addSubjectReq');
 
 // Retrieve the subjects available and add to options.
 fetch('/subjects')
@@ -16,7 +18,7 @@ fetch('/subjects')
   }))
 
 async function submitQuestions() {
-  const questions = await fetch('/add', {
+  let questions = await fetch('/add', {
   method: 'POST',
   headers: {
     'Accept': 'application/json',
@@ -36,7 +38,29 @@ async function submitQuestions() {
 
 }
 
+// Makes a request to add a new subject
+async function newSubject() {
+  let request = await fetch('/addSubject', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({subject:addSubject.value})
+  })
 
+  let status = await request.json();
+  if (status.updated){
+    location.reload();
+  } else {
+    alert('An error occured while trying to add a new subject. Please contact admin or developer.')
+  }
+}
+
+
+addSubjectReq.addEventListener('click', (event)=>{
+  newSubject();
+})
 
 addTest.onsubmit = (e) => {
   e.preventDefault();

@@ -2,7 +2,7 @@ const express = require('express')
 const path = require('path')
 const router = express.Router()
 const bodyParser = require('body-parser')
-const urlencoded = bodyParser.urlencoded({extended:false})
+const bodyJSON = bodyParser.json();
 const multer = require('multer')
 const formInput = multer()
 const fs = require('fs')
@@ -49,6 +49,20 @@ router.route('/add')
       res.send({status:"Update successfull."})
     })      
   })
+router.route('/addSubject')
+  .post(bodyJSON,async (req,res)=>{
+    try{
+      await quizerDB.create({
+        subject: req.body.subject,
+        items:[]
+      })
+    }
+    catch(err){
+      res.json({updated:false})
+    }
+    res.json({updated:true})
+
+  })
 router.get('/database', (req, res) => {
   res.sendFile('database.html',options)
 })
@@ -66,13 +80,23 @@ router.route('/tests')
   })
 router.route('/subjects')
   .get((req,res)=>{
-    res.json({subjects:[
-      "tailwindCSS",
-      "replitShortcuts",
-      "jsDoc",
-      "gitCLI",
-      "npmCommands"
-    ]})
+    // retrieve all subject available on the database.
+    // res.json({subjects:[
+    //   "tailwindCSS",
+    //   "replitShortcuts",
+    //   "jsDoc",
+    //   "gitCLI",
+    //   "npmCommands"
+    // ]})
+    quizerDB.find({},'subject',(err,docs)=>{
+      // console.log(docs)
+      let availableSubject = [];
+      docs.forEach((item)=>{
+        availableSubject.push(item.subject);
+      })
+      // console.log(availableSubject);
+      res.json({subjects:availableSubject});
+    })
   })
 
 module.exports = router ; 
