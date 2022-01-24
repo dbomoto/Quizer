@@ -2,6 +2,7 @@ const express = require('express')
 const path = require('path')
 const router = express.Router()
 const bodyParser = require('body-parser')
+const bodyURL = bodyParser.urlencoded({extended:false});
 const bodyJSON = bodyParser.json();
 const multer = require('multer')
 const formInput = multer()
@@ -66,6 +67,19 @@ router.route('/addSubject')
 router.get('/database', (req, res) => {
   res.sendFile('database.html',options)
 })
+router.route('/questions')
+  .get(bodyURL, (req,res)=>{
+    // console.log(req)
+
+    quizerDB.findOne({subject:req.query.reqSub},'-_id -subject', (err,doc)=>{
+      
+      let questions = [...doc.items]
+      // console.log(doc.items)
+      var objDoc = JSON.stringify(questions)
+      res.send(objDoc)
+
+    })    
+  })
 router.route('/tests')
   .get((req, res) => {
     res.sendFile('tests.html',options)
