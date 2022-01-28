@@ -9,6 +9,7 @@ const formInput = multer()
 const fs = require('fs')
 const ejs = require('ejs')
 const mongoose = require('mongoose')
+var ObjectId = mongoose.Types.ObjectId;
 const options = {
   root: path.join(__dirname,'../views')
 }
@@ -35,6 +36,17 @@ const quizerDB = mongoose.model('quizer', quizerSchema, 'quizer');
 router.get('/', (req, res) => {
   res.sendFile('home.html',options)
 })
+router.route('/edit')
+  .put(formInput.none(),async (req,res) => {
+
+    await quizerDB.findOneAndUpdate({subject:req.body.subject,'items._id':ObjectId(req.body.editID)},{'items.$.question':req.body.editQuestion,'items.$.answer':req.body.editAnswer},{returnOriginal:false})
+
+    res.status(200).send('Updated')
+
+  })
+  .delete(formInput.none(),(req,res) => {
+    console.log('Delete request', req.body)
+  })
 router.route('/add')
   .get((req,res) => {
     res.sendFile('add.html',options)
@@ -95,20 +107,11 @@ router.route('/tests')
 router.route('/subjects')
   .get((req,res)=>{
     // retrieve all subject available on the database.
-    // res.json({subjects:[
-    //   "tailwindCSS",
-    //   "replitShortcuts",
-    //   "jsDoc",
-    //   "gitCLI",
-    //   "npmCommands"
-    // ]})
     quizerDB.find({},'subject',(err,docs)=>{
-      // console.log(docs)
       let availableSubject = [];
       docs.forEach((item)=>{
         availableSubject.push(item.subject);
       })
-      // console.log(availableSubject);
       res.json({subjects:availableSubject});
     })
   })

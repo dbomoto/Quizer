@@ -380,7 +380,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.transform, .hover\:scale-110 {
+.transform, .hover\:scale-110, .hover\:scale-125 {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -395,14 +395,47 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity));
 }
+.invisible {
+  visibility: hidden;
+}
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}
+.top-0 {
+  top: 0px;
+}
+.right-\[20px\] {
+  right: 20px;
+}
+.top-\[5px\] {
+  top: 5px;
+}
+.right-0 {
+  right: 0px;
+}
+.right-\[3px\] {
+  right: 3px;
+}
+.top-\[2px\] {
+  top: 2px;
+}
 .z-10 {
   z-index: 10;
+}
+.z-20 {
+  z-index: 20;
 }
 .m-auto {
   margin: auto;
 }
 .flex {
   display: flex;
+}
+.inline-flex {
+  display: inline-flex;
 }
 .hidden {
   display: none;
@@ -416,6 +449,24 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-32 {
   height: 8rem;
 }
+.h-full {
+  height: 100%;
+}
+.h-\[28rem\] {
+  height: 28rem;
+}
+.h-2\/6 {
+  height: 33.333333%;
+}
+.h-\[40px\] {
+  height: 40px;
+}
+.h-7 {
+  height: 1.75rem;
+}
+.h-6 {
+  height: 1.5rem;
+}
 .h-80 {
   height: 20rem;
 }
@@ -424,9 +475,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .h-1\/6 {
   height: 16.666667%;
-}
-.h-2\/6 {
-  height: 33.333333%;
 }
 .h-14 {
   height: 3.5rem;
@@ -448,6 +496,15 @@ Ensure the default browser behavior of the `hidden` attribute.
 .w-2\/6 {
   width: 33.333333%;
 }
+.w-\[25rem\] {
+  width: 25rem;
+}
+.w-7 {
+  width: 1.75rem;
+}
+.w-6 {
+  width: 1.5rem;
+}
 .w-4\/6 {
   width: 66.666667%;
 }
@@ -463,6 +520,24 @@ Ensure the default browser behavior of the `hidden` attribute.
 .transform {
   transform: var(--tw-transform);
 }
+@-webkit-keyframes ping {
+
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes ping {
+
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+.animate-ping {
+  -webkit-animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+          animation: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
 .flex-row {
   flex-direction: row;
 }
@@ -477,6 +552,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .justify-around {
   justify-content: space-around;
+}
+.justify-evenly {
+  justify-content: space-evenly;
 }
 .space-y-10 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -496,6 +574,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .overflow-auto {
   overflow: auto;
 }
+.overflow-y-auto {
+  overflow-y: auto;
+}
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -504,6 +585,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .rounded-lg {
   border-radius: 0.5rem;
+}
+.rounded-full {
+  border-radius: 9999px;
 }
 .border-2 {
   border-width: 2px;
@@ -549,13 +633,32 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-gray-300\/80 {
   background-color: rgb(209 213 219 / 0.8);
 }
-.bg-red-300 {
+.bg-slate-200\/90 {
+  background-color: rgb(226 232 240 / 0.9);
+}
+.bg-green-400 {
   --tw-bg-opacity: 1;
-  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
+  background-color: rgb(74 222 128 / var(--tw-bg-opacity));
+}
+.bg-red-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(248 113 113 / var(--tw-bg-opacity));
 }
 .bg-gray-300 {
   --tw-bg-opacity: 1;
   background-color: rgb(209 213 219 / var(--tw-bg-opacity));
+}
+.bg-sky-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(56 189 248 / var(--tw-bg-opacity));
+}
+.bg-sky-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(14 165 233 / var(--tw-bg-opacity));
+}
+.bg-red-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 .bg-white {
   --tw-bg-opacity: 1;
@@ -578,6 +681,24 @@ Ensure the default browser behavior of the `hidden` attribute.
 .p-2 {
   padding: 0.5rem;
 }
+.p-5 {
+  padding: 1.25rem;
+}
+.px-2 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+.py-2 {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.px-3 {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+.pl-2 {
+  padding-left: 0.5rem;
+}
 .text-center {
   text-align: center;
 }
@@ -596,6 +717,13 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
+}
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+.text-\[2rem\] {
+  font-size: 2rem;
 }
 .font-bold {
   font-weight: 700;
@@ -617,10 +745,49 @@ Ensure the default browser behavior of the `hidden` attribute.
 .underline {
   text-decoration: underline;
 }
+.opacity-75 {
+  opacity: 0.75;
+}
+.transition-transform {
+  transition-property: transform;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+.duration-150 {
+  transition-duration: 150ms;
+}
+.ease-in {
+  transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+}
+.after\:float-right::after {
+  content: var(--tw-content);
+  float: right;
+}
+.after\:block::after {
+  content: var(--tw-content);
+  display: block;
+}
+.after\:content-\[\'close\'\]::after {
+  --tw-content: 'close';
+  content: var(--tw-content);
+}
 .hover\:scale-110:hover {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
   transform: var(--tw-transform);
+}
+.hover\:scale-125:hover {
+  --tw-scale-x: 1.25;
+  --tw-scale-y: 1.25;
+  transform: var(--tw-transform);
+}
+.hover\:bg-green-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(134 239 172 / var(--tw-bg-opacity));
+}
+.hover\:bg-red-300:hover {
+  --tw-bg-opacity: 1;
+  background-color: rgb(252 165 165 / var(--tw-bg-opacity));
 }
 .hover\:ease-in:hover {
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
@@ -631,6 +798,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 .active\:border-black:active {
   --tw-border-opacity: 1;
   border-color: rgb(0 0 0 / var(--tw-border-opacity));
+}
+.active\:bg-green-600:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(22 163 74 / var(--tw-bg-opacity));
+}
+.active\:bg-red-600:active {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
 }
 @media (min-width: 768px) {
 
