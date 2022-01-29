@@ -44,8 +44,23 @@ router.route('/edit')
     res.status(200).send('Updated')
 
   })
-  .delete(formInput.none(),(req,res) => {
-    console.log('Delete request', req.body)
+  .delete(formInput.none(), async(req,res) => {
+
+    await quizerDB.findOneAndUpdate({
+      subject: req.body.subject
+    },{
+      '$pull':{
+        'items':{
+          '_id':ObjectId(req.body.editID)
+        }
+      }
+    },{
+      multi:true,
+      returnOriginal:false
+    })
+
+    res.status(200).send('Deleted')
+
   })
 router.route('/add')
   .get((req,res) => {

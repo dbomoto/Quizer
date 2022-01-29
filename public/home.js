@@ -62,9 +62,9 @@ async function getQuestions() {
 function startTest() {
   if (temp.length){
     let totalItems = temp.length
-    console.log("totalItems:",totalItems)
+    // console.log("totalItems:",totalItems)
     randomItem = _.random(0,totalItems-1,false)
-    console.log("current question",temp[randomItem])
+    // console.log("current question",temp[randomItem])
     question.innerText = temp[randomItem].question
     answerWrong.value = temp[randomItem].answer
     answer.focus()
@@ -260,5 +260,9 @@ document.addEventListener('keydown',(e)=>{
 
 testOptions.onsubmit = (e) => {
   e.preventDefault();
+  score = 0;
+  temp = [];
+  modal.classList.toggle('hidden',true)    
+  testPage.classList.toggle('hidden',true)
   getQuestions();
 }
