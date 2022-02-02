@@ -186,29 +186,69 @@ document.addEventListener('keydown',(e)=>{
   }
   if (e.ctrlKey) {
     switch(e.keyCode){
-      case 73:
+      case 8:
         e.preventDefault();
-        answer.value = "ctrl+i";
+        answer.value = "ctrl+backspace";
         break;
-      case 70:
+      case 13:
         e.preventDefault();
-        answer.value = "ctrl+f";
+        answer.value = "ctrl+enter";
         break;
-      case 72:
+      case 35:
         e.preventDefault();
-        answer.value = "ctrl+h";
+        answer.value = "ctrl+end";
+        break;
+      case 36:
+        e.preventDefault();
+        answer.value = "ctrl+home";
+        break;
+      case 37:
+        e.preventDefault();
+        answer.value = "ctrl+left";
+        break;
+      case 39:
+        e.preventDefault();
+        answer.value = "ctrl+right";
+        break;
+      case 46:
+        e.preventDefault();
+        answer.value = "ctrl+delete";
         break;
       case 68:
         e.preventDefault();
         answer.value = "ctrl+d";
         break;
-      case 80:
+      case 70:
         e.preventDefault();
-        answer.value = "ctrl+p";
+        answer.value = "ctrl+f";
         break;
       case 71:
         e.preventDefault();
         answer.value = "ctrl+g";
+        break;
+      case 72:
+        e.preventDefault();
+        answer.value = "ctrl+h";
+        break;
+      case 73:
+        e.preventDefault();
+        answer.value = "ctrl+i";
+        break;
+      case 80:
+        e.preventDefault();
+        answer.value = "ctrl+p";
+        break;
+      case 89:
+        e.preventDefault();
+        answer.value = "ctrl+y";
+        break;
+      case 188:
+        e.preventDefault();
+        answer.value = "ctrl+,";
+        break;
+      case 190:
+        e.preventDefault();
+        answer.value = "ctrl+.";
         break;
       case 219:
         e.preventDefault();
@@ -241,6 +281,14 @@ document.addEventListener('keydown',(e)=>{
       case 13:
         e.preventDefault();
         answer.value = "ctrl+shift+enter";
+        break;
+      case 71:
+        e.preventDefault();
+        answer.value = "ctrl+shift+g";
+        break;
+      case 83:
+        e.preventDefault();
+        answer.value = "ctrl+shift+s";
         break;
     }
   }
