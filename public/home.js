@@ -9,6 +9,7 @@ const answer = document.getElementById('answer')
 const answerWrong = document.getElementById('answerWrong')
 const submitAnswer = document.getElementById('submitAnswer')
 const nextQuestion = document.getElementById('nextQuestion')
+const introPage = document.getElementById('introPage')
 
 // Modal after finishing test
 const modal = document.getElementById('modal')
@@ -154,7 +155,8 @@ restart.addEventListener('click',(e)=>{
 newTest.addEventListener('click',(e)=>{
   score = 0;
   temp = [...testPaper.items];
-  modal.classList.toggle('hidden')  
+  modal.classList.toggle('hidden')
+  introPage.classList.toggle('hidden')
 })
 
 // Converts specific keyboard combinations to txt.
@@ -311,6 +313,7 @@ testOptions.onsubmit = (e) => {
   score = 0;
   temp = [];
   modal.classList.toggle('hidden',true)    
+  introPage.classList.toggle('hidden',true)
   testPage.classList.toggle('hidden',true)
   getQuestions();
 }

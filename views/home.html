@@ -9,13 +9,16 @@
 </head>
 
 <body>
-	<div id="appWrapper" class="flex flex-row">
-		<div id="homeWrapper" class="w-2/6
+<!--  SIDEBAR AND TEST AREA  -->
+	<div id="appWrapper" class="flex sm:flex-row 
+    flex-col sm:h-auto h-[1000px]">
+		<div id="homeWrapper" class="sm:w-2/6
     border-4 border-solid rounded-md border-gray-800
     bg-gray-200
+    w-full h-1/2
     ">
 			<div id="selectTest" class="
-      flex flex-col items-center h-screen justify-center space-y-10
+      flex flex-col items-center h-full sm:h-screen justify-center space-y-10
       w-5/6 m-auto md:w-4/6
       ">
 
@@ -25,24 +28,24 @@
           ">
 					<label for="subject" class="
               text-3xl text-center
-              ">Choose a subject and press Start:</label>
-              <select id="subject" name="subject" size="5" class="
-              border-4 border-
-              ">
-              </select>
-              <input type="submit" class="
-              bg-blue-200 p-3 border-blue-400 border-2 rounded-md
-              transform hover:scale-110 hover:ease-in
-              " 
-              value="Start">
-          </form>
+          ">Choose a subject and press Start:</label>
+          <select id="subject" name="subject" size="5" class="
+          border-4 border-
+          ">
+          </select>
+          <input type="submit" class="
+          bg-blue-200 p-3 border-blue-400 border-2 rounded-md
+          transform hover:scale-110 hover:ease-in
+          " 
+          value="Start">
+        </form>
       </div>     
     </div>
-    <div id="testWrapper" class="w-4/6
+    <div id="testWrapper" class="sm:w-4/6
     border-4 border-solid rounded-md border-gray-800
-    ">
+    w-full h-1/2">
       <div id="testPage" class="
-      flex flex-col items-center h-screen justify-center space-y-10
+      flex flex-col items-center h-full sm:h-screen justify-center space-y-10
       w-5/6 m-auto md:w-4/6 hidden
       ">
           <p id="question" class="
@@ -71,6 +74,69 @@
           ">Next</button>
           
       </div> 
+      <div id="introPage" class="
+      flex flex-col items-center h-full sm:h-screen justify-start space-y-10
+      m-auto overflow-y-scroll
+      py-20 px-10 font-mono text-center text-lg">
+          
+        <h1 class="font-sans text-5xl font-bold ring-2 rounded-xl ring-offset-8 ring-blue-500 ring-4 animate-bounce">WELCOME TO QUIZER</h1>
+        
+        <h2 class="text-3xl font-semibold tracking-wider">WHAT IS QUIZER</h2>
+        <p>From the name itself, it is a quiz app which records your score and displays it in the end. It can also detect certain keyboard shortcut combinations related to the subject, i.e. replitShortcuts.  </p>
+        
+        <h2 class="text-3xl font-semibold tracking-wider">FEATURES</h2>
+        <h3 class="text-xl font-medium">Keyboard Shortcut Recognition</h3>
+        <p>The app is able to detect certain keboard shortcuts, e.g. Ctrf+F, and displays it as your answer to the question. </p>    
+        <h3 class="text-xl font-medium">Questionnaire Update</h3>
+        <p>You can not only add more questions to a specific subject, but also add an entirely new subject via the <a href="/add" class="underline decoration-blue-200 text-lg text-blue-500">UPDATE</a> tab.</p>
+        <h3 class="text-xl font-medium">Database Management</h3>
+        <p>You can view all the questions and answers for the chosen subject on the <a href="/database" class="underline decoration-blue-200 text-lg text-blue-500">DATABASE</a> tab.</p>
+        <h3 class="text-xl font-medium">Tally of score</h3>
+        <p>At the end of every quiz, a tally will show your score and gives you the option to restart the quiz or take a new one.</p>
+        <h2 class="text-3xl font-semibold tracking-wider">HOW TO USE</h2>
+        <ul class="space-y-10 text-left">
+          <ol class="list-decimal list-inside space-y-1">
+            <span class="text-xl font-medium">
+            HOME TAB
+            </span>
+            <li>On the sidebar, choose a subject that you want.</li>
+            <li>Click the Start Button.</li>
+          </ol>
+          <ol class="list-decimal list-inside space-y-1">
+            <span class="text-xl font-medium"> 
+            ADDING A SUBJECT
+            </span>
+            <li>Click the UPDATE tab.</li>
+            <li>Input the name of the subject.</li>
+            <li>Click the Add Subject button.</li>
+            <li>Wait for it to finish updating the database.</li>
+            <li>You should be able to see your newly added subject on the list. If not please try realoading the page.</li>
+          </ol>
+          <ol class="list-decimal list-inside space-y-1">
+            <span class="text-xl font-medium">
+            ADDING A QUESTION
+            </span>
+            <li>Click the UPDATE tab.</li>
+            <li>Choose the subject you want to add a question.</li>
+            <li>Input your question on the Question box.</li>
+            <li>Input the answer on the Answer box.</li>
+            <li>Click the Add button and wait for it to finish updating.</li>
+          </ol>
+          <ol class="list-decimal list-inside space-y-1">
+            <span class="text-xl font-medium">
+            UPDATING A QUESTION OR ANSWER
+            </span>
+            <li>Click on the DATABASE tab.</li>
+            <li>Choose a subject on the sidebar.</li>
+            <li>You should see on the righ side a list of all the question and answers on the database</li>
+            <li>Click the edit command.</li>
+            <li>A modal will pop up. There you can edit the question or answer.</li>
+            <li>Click UPDATE when your done, or DELETE if you want to delete the question itself.</li>
+          </ol>
+        </ul>
+          <h2 class="text-3xl font-semibold tracking-wider">AUTHOR NOTES</h2>
+          <p>Not all keyboard combinations are applicable as of this writing. Please use sparingly. You can add as many subjects and questions as you want but the database size is limited to 500mb for all the subjects. And with that please enjoy using the app. </p>
+      </div>
       <!--Modal to show after finishing the test.-->
       <div id="modal" class="
       bg-gray-300 h-screen w-full flex flex-col justify-center
@@ -100,10 +166,10 @@
           </div>
       </div>     
     </div>
-</div>
+  </div>
 
-<!-- Nav bar -->
-<nav class="fixed top-0 w-full bg-bg-transparent -translate-y-10">
+<!-- NAV BAR -->
+  <nav class="fixed top-0 w-full bg-bg-transparent -translate-y-10">
     <ul class="flex flex-row justify-start text-center
     place-items-center rounded-lg space-x-1">
         <a href="/"><li class=" bg-green-300 h-full rounded-bl-lg rounded-br-lg
@@ -118,7 +184,75 @@
     </ul>
 </nav>
 
+<!-- CARD ADDITIONAL CLASSES -->
+  <div class="-translate-x-[22.7rem] hidden"> </div> 
+<!--   MAIN CARD WRAPPER -->
+  <div id="card" class="bg-primary-200 w-96 h-60 rounded-md absolute
+  bottom-2 left-2 hover:ring-4 ring-secondary-200 text-[16px]
+  transition-all ease-out duration-500 group">
+      <div class="flex flex-row h-3/4 w-full">
+          <div class="w-1/2 flex flex-row justify-center items-center bg-primary-100
+          rounded-br-lg rounded-tl-lg group-hover:ring-4 ring-secondary-200 transition-all
+          duration-500">
+              <div class="w-28 h-28">
+                  <img src="/profile_v2.jpg" alt="Daniel Benedic L. Omoto" 
+                  class="rounded-tr-3xl rounded-bl-3xl rounded-tl-lg rounded-br-lg">
+              </div>
+          </div>
+          <div class="w-1/2 flex flex-col justify-center gap-y-5 font-mono relative
+          transition-all">
+              <span class="text-xl text-center font-extrabold underline
+              decoration-secondary-400 underline-offset-4">Daniel Benedict L. Omoto</span>
+              <span class="text-lg text-center font-semibold">Web Developer</span>
+              <div id="close" class="absolute -right-3 -top-3 text-4xl w-10 h-10 bg-accent-100 text-center
+              rounded-full pl-2 py-1 hover:cursor-pointer hover:scale-110"
+              onclick="cardShow()">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M41.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 256 278.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z"/></svg>
+              </div>
+              <div id="open" class="hidden absolute -right-3 -top-3 text-4xl w-10 h-10 bg-accent-100 text-center
+              rounded-full pl-2 py-1 hover:cursor-pointer hover:scale-110"
+              onclick="cardShow()">
+                  <svg xmlns="http://www.w3.org/2000/svg" height="32" viewBox="0 0 384 512"><!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
+              </div>
+          </div>
+      </div>
+      <div class="w-full h-1/4
+      flex flex-row justify-center py-3 space-x-10">
+  
+          <a href="https://github.com/dbomoto" target="_blank" class="hover:scale-110 transition-all">
+              <svg class="hover:fill-secondary-400" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 496 512">
+                  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                      d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z" />
+              </svg>
+          </a>
+          <a href="mailto:dbomoto@gmail.com" target="_blank" class="hover:scale-110 transition-all">
+              <svg class="hover:fill-secondary-400" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 488 512">
+                  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                      d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
+              </svg>
+          </a>
+          <a href="https://www.linkedin.com/in/daniel-benedict-omoto-04a232206/" target="_blank" class="hover:scale-110 transition-all">
+              <svg class="hover:fill-secondary-400" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 448 512">
+                  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                      d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z" />
+              </svg>
+          </a>
+          <a href="https://www.example.com" target="_blank" class="hover:scale-110 transition-all">
+              <svg class="hover:fill-secondary-400" xmlns="http://www.w3.org/2000/svg" height="40" viewBox="0 0 512 512">
+                  <!--! Font Awesome Pro 6.2.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. -->
+                  <path
+                      d="M352 256c0 22.2-1.2 43.6-3.3 64H163.3c-2.2-20.4-3.3-41.8-3.3-64s1.2-43.6 3.3-64H348.7c2.2 20.4 3.3 41.8 3.3 64zm28.8-64H503.9c5.3 20.5 8.1 41.9 8.1 64s-2.8 43.5-8.1 64H380.8c2.1-20.6 3.2-42 3.2-64s-1.1-43.4-3.2-64zm112.6-32H376.7c-10-63.9-29.8-117.4-55.3-151.6c78.3 20.7 142 77.5 171.9 151.6zm-149.1 0H167.7c6.1-36.4 15.5-68.6 27-94.7c10.5-23.6 22.2-40.7 33.5-51.5C239.4 3.2 248.7 0 256 0s16.6 3.2 27.8 13.8c11.3 10.8 23 27.9 33.5 51.5c11.6 26 21 58.2 27 94.7zm-209 0H18.6C48.6 85.9 112.2 29.1 190.6 8.4C165.1 42.6 145.3 96.1 135.3 160zM8.1 192H131.2c-2.1 20.6-3.2 42-3.2 64s1.1 43.4 3.2 64H8.1C2.8 299.5 0 278.1 0 256s2.8-43.5 8.1-64zM194.7 446.6c-11.6-26-20.9-58.2-27-94.6H344.3c-6.1 36.4-15.5 68.6-27 94.6c-10.5 23.6-22.2 40.7-33.5 51.5C272.6 508.8 263.3 512 256 512s-16.6-3.2-27.8-13.8c-11.3-10.8-23-27.9-33.5-51.5zM135.3 352c10 63.9 29.8 117.4 55.3 151.6C112.2 482.9 48.6 426.1 18.6 352H135.3zm358.1 0c-30 74.1-93.6 130.9-171.9 151.6c25.5-34.2 45.2-87.7 55.3-151.6H493.4z" />
+              </svg>
+          </a>
+      </div>
+      <!-- SLIDE IN AND SLIDE OUT -->
+  </div>  
+
 </body>
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"></script>
 <script src="/home.js"></script>
+<script src="/card.js"></script>
 </html>
