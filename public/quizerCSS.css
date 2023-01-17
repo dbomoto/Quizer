@@ -380,7 +380,7 @@ Ensure the default browser behavior of the `hidden` attribute.
   display: none;
 }
 
-.-translate-y-10, .-translate-x-\[22\.7rem\], .transform, .hover\:translate-y-3, .hover\:scale-110, .hover\:scale-125 {
+.-translate-y-10, .-translate-x-\[24\.5rem\], .transform, .hover\:translate-y-3, .hover\:scale-110, .hover\:scale-125 {
   --tw-translate-x: 0;
   --tw-translate-y: 0;
   --tw-rotate: 0;
@@ -427,11 +427,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .left-2 {
   left: 0.5rem;
 }
-.-right-3 {
-  right: -0.75rem;
+.-right-10 {
+  right: -2.5rem;
 }
-.-top-3 {
-  top: -0.75rem;
+.-top-5 {
+  top: -1.25rem;
 }
 .right-\[20px\] {
   right: 20px;
@@ -568,8 +568,8 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-translate-y: -2.5rem;
   transform: var(--tw-transform);
 }
-.-translate-x-\[22\.7rem\] {
-  --tw-translate-x: -22.7rem;
+.-translate-x-\[24\.5rem\] {
+  --tw-translate-x: -24.5rem;
   transform: var(--tw-transform);
 }
 .transform {
