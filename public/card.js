@@ -9,7 +9,7 @@ const contCard = document.getElementById('card')
 function cardShow(){
     openCard.classList.toggle('hidden')
     closeCard.classList.toggle('hidden')
-    contCard.classList.toggle('-translate-x-[22.7rem]')
+    contCard.classList.toggle('-translate-x-[24.5rem]')
 }   
 
 
